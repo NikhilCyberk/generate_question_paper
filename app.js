@@ -1,6 +1,6 @@
 const express = require("express");
 const fs = require("fs");
-const port = 8081;
+const PORT = process.env.PORT || 3030;
 const bodyParser = require("body-parser");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
@@ -206,6 +206,7 @@ app.post("/listings/generate", (req, res) => {
   res.render("./listing/generated_paper.ejs", { generatedQuestions });
 });
 
-app.listen(port, () => {
-  console.log("listening on port " + port);
+app.listen(PORT, () => {
+  console.log(`server started on port ${PORT}`);
 });
+
